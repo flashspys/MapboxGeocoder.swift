@@ -59,8 +59,6 @@ public let MBPostalAddressCountryKey = "country"
  */
 public let MBPostalAddressISOCountryCodeKey = "ISOCountryCode"
 
-public typealias PlacemarkPrecision = MBPlacemarkPrecision
-
 /**
  A `Placemark` object represents a geocoder result. A placemark associates identifiers, geographic data, and contact information with a particular latitude and longitude. It is possible to explicitly create a placemark object from another placemark object; however, placemark objects are generally created for you via the `Geocoder.geocode(_:completionHandler:)` method.
  */
@@ -181,7 +179,7 @@ open class Placemark: NSObject, Codable {
      
      The scope offers a general indication of the size or importance of the feature represented by the placemark – in other words, how local the feature is.
      */
-    @objc open var scope: PlacemarkScope {
+     open var scope: PlacemarkScope {
         let components = identifier.components(separatedBy: ".")
         assert(components.count > 0)
         return PlacemarkScope(descriptions: [components.prefix(2).joined(separator: ".")]) ?? PlacemarkScope(descriptions: [components.first!]) ?? []
@@ -593,7 +591,7 @@ open class GeocodedPlacemark: Placemark {
      
      The precision offers a general indication of the potential distance between the `location` property and the feature’s actual real-world location.
      */
-    @objc open var precision: PlacemarkPrecision? {
+     open var precision: PlacemarkPrecision? {
         if let precision = properties?.precision {
             return PlacemarkPrecision(rawValue: precision)
         }

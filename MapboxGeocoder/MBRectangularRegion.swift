@@ -1,3 +1,5 @@
+import Foundation
+import CoreLocation
 /**
  The `RectangularRegion` class defines a rectangular bounding box for a geographic region.
  */

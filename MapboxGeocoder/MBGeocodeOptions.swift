@@ -1,6 +1,7 @@
 #if !os(tvOS)
     import Contacts
 #endif
+import CoreLocation
 
 /**
  A structure that specifies the criteria for results returned by the Mapbox Geocoding API.
@@ -37,7 +38,7 @@ open class GeocodeOptions: NSObject {
      
      The default value of this property is `PlacemarkScope.all`, which includes all scopes.
      */
-    @objc open var allowedScopes: PlacemarkScope = [.all]
+    open var allowedScopes: PlacemarkScope = [.all]
     
     /**
      The region in which each resulting placemark must be located.
